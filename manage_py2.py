@@ -31,7 +31,7 @@ while True:
         if not undo: # 若待接受任务为空，则将正在做的任务重新发出去
             for tmpjobs in doing:
                 if (tmpjobs[1]-tmpjobs[0])<=reqNum:
-                    distriJob = tmpjobs.copy()
+                    distriJob = tmpjobs[:]
                     break
         else:
             maxN = undo[0]+reqNum-1
@@ -39,7 +39,7 @@ while True:
                 distriJob = [undo[0], maxN]
                 undo = [maxN+1, undo[1]]
             else: # 否则将剩下的任务都分配出去
-                distriJob = undo.copy()
+                distriJob = undo[:]
                 undo = [];
             doing.append(distriJob)
         if distriJob: # 若有任务分配
