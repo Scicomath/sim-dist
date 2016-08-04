@@ -1,10 +1,12 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import socket
 import time
 import os
 while True:
     s = socket.socket()
     # 主服务器信息
-    host = '192.168.164.178'
+    host = socket.gethostname()
     port = 45979
     # 连接服务器
     s.connect((host, port))
